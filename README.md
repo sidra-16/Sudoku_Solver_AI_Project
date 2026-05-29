@@ -8,11 +8,11 @@ The solver incorporates **Constraint Propagation** (Naked Singles and Hidden Sin
 
 | Main Landing Screen | Difficulty Selection |
 | :---: | :---: |
-| <img src="Screenshots/Main.png" width="400"> | <img src="Screenshots/Difficulty.png" width="400"> |
+| <img src="Screenshots/Main.png" width="400"> | <img src="Screenshots/Difficulty Selection.png" width="400"> |
 
 | Gameplay Visualization |
 | :---: |
-| <img src="Screenshots/Gameplay.png" width="800"> |
+| <img src="Screenshots/Gameplay.png" width="600"> |
 
 ### System Functionality
 
