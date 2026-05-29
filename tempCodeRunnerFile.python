@@ -1,0 +1,115 @@
+import random
+import copy
+
+class Sudoku:
+    def __init__(self):
+        self.grid = [[0 for _ in range(9)] for _ in range(9)]
+
+    def is_valid(self, num, row, col):
+        # Check row and column
+        for i in range(9):
+            if self.grid[row][i] == num or self.grid[i][col] == num:
+                return False
+
+        # Check 3x3 box
+        start_row, start_col = 3 * (row // 3), 3 * (col // 3)
+        for i in range(3):
+            for j in range(3):
+                if self.grid[start_row + i][start_col + j] == num:
+                    return False
+
+        return True
+
+    def solve(self):
+        for row in range(9):
+            for col in range(9):
+                if self.grid[row][col] == 0:
+                    for num in range(1, 10):
+                        if self.is_valid(num, row, col):
+                            self.grid[row][col] = num
+                            if self.solve():
+                                return True
+                            self.grid[row][col] = 0
+                    return False
+        return True
+
+    def count_solutions(self, grid_copy):
+        """Helper to check uniqueness of the puzzle."""
+        def backtrack():
+            for row in range(9):
+                for col in range(9):
+                    if grid_copy[row][col] == 0:
+                        for num in range(1, 10):
+                            if self.is_valid_grid(grid_copy, num, row, col):
+                                grid_copy[row][col] = num
+                                if backtrack():
+                                    return True
+                                grid_copy[row][col] = 0
+                        return False
+            return True
+
+        return backtrack()
+
+    def is_valid_grid(self, grid, num, row, col):
+        for i in range(9):
+            if grid[row][i] == num or grid[i][col] == num:
+                return False
+        start_row, start_col = 3 * (row // 3), 3 * (col // 3)
+        for i in range(3):
+            for j in range(3):
+                if grid[start_row + i][start_col + j] == num:
+                    return False
+        return True
+
+    def fill_grid(self):
+        numbers = list(range(1, 10))
+        for i in range(9):
+            for j in range(9):
+                if self.grid[i][j] == 0:
+                    random.shuffle(numbers)
+                    for num in numbers:
+                        if self.is_valid(num, i, j):
+                            self.grid[i][j] = num
+                            if self.fill_grid():
+                                return True
+                            self.grid[i][j] = 0
+                    return False
+        return True
+
+    def generate_puzzle(self, difficulty="easy"):
+        """Generates a puzzle by removing numbers based on difficulty."""
+        self.fill_grid()
+        solution = copy.deepcopy(self.grid)
+
+        if difficulty == "easy":
+            cells_to_remove = 35
+        elif difficulty == "medium":
+            cells_to_remove = 45
+        elif difficulty == "hard":
+            cells_to_remove = 55
+        else:
+            raise ValueError("Difficulty must be 'easy', 'medium', or 'hard'.")
+
+        removed = 0
+        while removed < cells_to_remove:
+            row = random.randint(0, 8)
+            col = random.randint(0, 8)
+            if self.grid[row][col] != 0:
+                backup = self.grid[row][col]
+                self.grid[row][col] = 0
+                temp = copy.deepcopy(self.grid)
+                if not self.count_solutions(temp):
+                    self.grid[row][col] = backup
+                else:
+                    removed += 1
+
+    def print_grid(self):
+        for row in self.grid:
+            print(" ".join(str(num) if num != 0 else '.' for num in row))
+
+# Example usage
+if __name__ == "__main__":
+    game = Sudoku()
+    game.generate_puzzle(difficulty="medium")
+    print("Generated Sudoku Puzzle:")
+    game.print_grid()
