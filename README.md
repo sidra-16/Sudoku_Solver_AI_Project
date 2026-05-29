@@ -11,7 +11,7 @@ The backend incorporates **Constraint Propagation** (Naked Singles and Hidden Si
 
 | Main Landing Screen | Difficulty Selection |
 | :---: | :---: |
-| <img src="Screenshots/Main.png" width="400"> | <img src="Screenshots/Difficulty.png" width="400"> |
+| <img src="Screenshots/Main.png" width="400"> | <img src="Screenshots/Difficulty Selection.png" width="400"> |
 
 | Gameplay & Visualization |
 | :---: |
