@@ -12,7 +12,7 @@ The backend incorporates **Constraint Propagation** (Naked Singles and Hidden Si
 
 |             Gameplay & Visualization             |
 | :----------------------------------------------: |
-| <img src="Screenshots/Gameplay.png" width="800"> |
+| <img src="Screenshots/Gameplay.png" width="400"> |
 
 ### System Functionality
 
@@ -62,7 +62,7 @@ python "themed gui.py"
 
 The development of this system was supported by core AI principles and specialized libraries:
 
-Python: The primary programming language used for engine and GUI development.
-Pygame: Used for building the interactive grid, handling user input, and managing real-time animations.
-Constraint Satisfaction (CSP): The theoretical framework used to model Sudoku constraints (Row, Column, and Box uniqueness).
-Minimum Remaining Values (MRV): An optimization heuristic used to speed up the backtracking search by choosing the most restricted variables first.
+* **[Python](https://www.python.org/)**: The primary programming language used for engine and GUI development.
+* **[Pygame](https://www.pygame.org/docs/)**: Used for building the interactive grid, handling user input, and managing real-time animations.
+* **[Constraint Satisfaction Problem (CSP)](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem)**: The theoretical framework used to model Sudoku constraints (Row, Column, and Box uniqueness).
+* **[Minimum Remaining Values (MRV)](https://inst.eecs.berkeley.edu/~cs188/textbook/csp/ordering.html)**: An optimization heuristic used to speed up the backtracking search by choosing the most restricted variables first.
