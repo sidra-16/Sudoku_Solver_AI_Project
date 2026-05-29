@@ -62,7 +62,7 @@ python "themed gui.py"
 
 The development of this system was supported by core AI principles and specialized libraries:
 
-* Python: The primary programming language used for engine and GUI development.
-* Pygame: Used for building the interactive grid, handling user input, and managing real-time animations.
-* Constraint Satisfaction (CSP): The theoretical framework used to model Sudoku constraints (Row, Column, and Box uniqueness).
-* Minimum Remaining Values (MRV): An optimization heuristic used to speed up the backtracking search by choosing the most restricted variables first.
+Python: The primary programming language used for engine and GUI development.
+Pygame: Used for building the interactive grid, handling user input, and managing real-time animations.
+Constraint Satisfaction (CSP): The theoretical framework used to model Sudoku constraints (Row, Column, and Box uniqueness).
+Minimum Remaining Values (MRV): An optimization heuristic used to speed up the backtracking search by choosing the most restricted variables first.
