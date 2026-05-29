@@ -1,41 +1,35 @@
-# Sudoku Solver
+# Intelligent Sudoku Solver: Hybrid CSP & Backtracking
 
-A Python-based Sudoku Solver that uses AI techniques to solve puzzles automatically. The project combines CSP (Constraint Satisfaction Problem) methods with Backtracking and the MRV heuristic to solve Sudoku boards efficiently.
+This Sudoku Solver moves away from simple brute-force methods to implement an intelligent, hybrid AI approach. By combining Constraint Satisfaction Problem (CSP) techniques with optimized Backtracking search, the system solves puzzles of varying complexity with high efficiency. It utilizes deterministic logic to fill cells whenever possible and falls back to a search-based approach only when necessary.
 
-## Features
+The solver incorporates **Constraint Propagation** (Naked Singles and Hidden Singles) to reduce the search space and employs the **Minimum Remaining Values (MRV)** heuristic during backtracking to prioritize the most constrained cells. This mirrors human-like problem-solving while maintaining the computational speed of search algorithms.
 
-* Solve Sudoku puzzles automatically
-* Easy, Medium, and Hard difficulty levels
-* Real-time solving visualization
-* Color-coded solving animation
-* Puzzle generator with unique solutions
-* Interactive GUI built with Pygame
+### Gallery
 
-## Technologies Used
+| Main Landing Screen | Difficulty Selection |
+| :---: | :---: |
+| <img src="Screenshots/Main.png" width="400"> | <img src="Screenshots/Difficulty.png" width="400"> |
 
-* Python
-* Pygame
-* CSP (Constraint Satisfaction Problem)
-* Backtracking Algorithm
-* MRV Heuristic
+| Gameplay Visualization |
+| :---: |
+| <img src="Screenshots/Gameplay.png" width="800"> |
 
-## How It Works
+### System Functionality
 
-The solver first applies logical CSP techniques like Naked Singles and Hidden Singles. If the puzzle is still incomplete, it uses Backtracking with the MRV heuristic to finish the solution efficiently.
+The application uses a modular architecture that separates puzzle logic from the interactive visualization layer:
 
-## Run the Project
+*   **Hybrid Solver Engine**: Executes deterministic CSP logic first, then employs recursive backtracking with MRV heuristics for remaining cells.
+*   **Unique Puzzle Generation**: Algorithmically generates valid Sudoku grids and ensures every puzzle has exactly one unique solution.
+*   **Real-time Visualization**: Animates the solving process using color-coding to distinguish between logic-solved and search-solved cells.
+*   **Difficulty Scaling**: Supports Easy (35 cells removed), Medium (45 cells removed), and Hard (55 cells removed) levels.
 
-```bash
-python themed_gui.py
-```
+### Project Structure
 
-## Project Structure
-
-* `sudoku_core.py` → Solver logic and puzzle generation
-* `themed_gui.py` → GUI and visualization
-* `assets/` → Images and UI resources
-
-## Authors
-
-* Muhammad Nafay Anjum
-* Sidra Tul Muntaha
+```text
+.
+├── Bg.png               # Landing screen background asset
+├── Bg1.png              # Secondary background asset
+├── setting.png          # UI settings icon
+├── sudoku_core.py       # Core AI logic (CSP, Backtracking, MRV)
+├── themed gui.py        # Pygame-based User Interface and Animation
+└── Screenshots/         # UI documentation images
