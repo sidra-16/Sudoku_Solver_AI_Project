@@ -12,7 +12,7 @@ The solver incorporates **Constraint Propagation** (Naked Singles and Hidden Sin
 
 | Gameplay Visualization |
 | :---: |
-| <img src="Screenshots/Gameplay.png" width="600"> |
+| <img src="Screenshots/Gameplay.png" width="400"> |
 
 ### System Functionality
 
